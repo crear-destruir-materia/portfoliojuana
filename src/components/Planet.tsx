@@ -70,7 +70,7 @@ export const Planet: React.FC<PlanetProps> = ({
           style={{
             inset: discInset,
             background: p.glow,
-            filter: `blur(${Math.max(6, discPx * 0.2)}px)`,
+            filter: `blur(${Math.min(24, Math.max(6, discPx * 0.14))}px)`,
             transform: "scale(1.18)",
           }}
         />

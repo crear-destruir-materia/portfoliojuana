@@ -124,15 +124,15 @@ export const CosmicPortfolio: React.FC = () => {
   return (
     <TooltipProvider delayDuration={150}>
       <div
-        className={`relative z-10 min-h-screen overflow-x-hidden transition-transform duration-700 ${warpActive ? "scale-[1.01]" : ""
+        className={`relative z-10 min-h-screen overflow-x-clip transition-transform duration-700 ${warpActive ? "scale-[1.01]" : ""
           }`}
       >
         {/* SCROLL ANIMATION: OSO COLGADO DEL LAZO ESTELAR */}
         <StellarLassoBear />
 
-        {/* AMBIENT FLOATING PLANETS IN DEEP SPACE (SUBTLE BLURRED BACKGROUND DETAILS) */}
+        {/* AMBIENT FLOATING PLANETS IN DEEP SPACE (DESKTOP ONLY TO PREVENT MOBILE GPU OOM) */}
         <div
-          className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
+          className="pointer-events-none fixed inset-0 z-0 hidden overflow-hidden md:block"
           aria-hidden="true"
         >
           <div className="absolute -top-[420px] -left-[420px] opacity-20">

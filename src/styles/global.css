@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #040c1d;
+    color: #f8f5ec;
+    font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  }
+
+  /* Cursor personalizado de Juana Varela (Sol con punta azul indicadora con hotspot exacto) */
+  @media (pointer: fine) {
+    html,
+    body {
+      cursor: url("/cursor-sol.png") 4 2, auto;
+    }
+
+    a,
+    button,
+    [role="button"],
+    input[type="submit"],
+    input[type="button"],
+    .cursor-pointer {
+      cursor: url("/cursor-sol-pointer.png") 5 2, pointer !important;
+    }
+  }
+
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:
+      radial-gradient(ellipse 85% 55% at 50% -10%, rgba(30, 75, 160, 0.35), transparent),
+      radial-gradient(ellipse 55% 45% at 88% 25%, rgba(255, 200, 61, 0.07), transparent),
+      radial-gradient(ellipse 70% 50% at 10% 65%, rgba(20, 55, 130, 0.25), transparent),
+      radial-gradient(ellipse 60% 40% at 50% 100%, rgba(15, 45, 95, 0.3), transparent),
+      #040c1d;
+  }
+
+  /* Sistema tipográfico dual de Juana Varela:
+     1) Inicial caligráfica ornamental (Pinyon Script / Great Vibes)
+     2) Cuerpo del título en Serif editorial de alto contraste en mayúsculas (Cormorant Garamond) */
+  h1, h2, h3, .font-bodoni, .font-editorial {
+    font-family: "Cormorant Garamond", "Didot", "Bodoni MT", Georgia, serif;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+  }
+}
+
+.font-bodoni,
+.font-editorial {
+  font-family: "Cormorant Garamond", "Didot", "Bodoni MT", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+.font-script-initial {
+  font-family: "Pinyon Script", "Great Vibes", cursive;
+  font-weight: 400;
+  line-height: 0.85;
+  display: inline-block;
+  margin-right: 0.18em;
+  padding-left: 0.04em;
+  transform: translateY(0.06em);
+}
+
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbitSpinReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes planetFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1.5deg); }
+}
+
+@keyframes planetSlowDrift {
+  0%, 100% { transform: translate3d(0px, 0px, 0) rotate(0deg); }
+  50% { transform: translate3d(10px, -14px, 0) rotate(2deg); }
+}
+
+@keyframes sunPinGlow {
+  0%, 100% {
+    filter: drop-shadow(0 4px 15px rgba(255, 200, 61, 0.55)) drop-shadow(0 0 25px rgba(255, 200, 61, 0.25));
+    transform: rotate(6deg) scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 6px 25px rgba(255, 217, 90, 0.85)) drop-shadow(0 0 40px rgba(255, 200, 61, 0.45));
+    transform: rotate(10deg) scale(1.04);
+  }
+}
+
+@keyframes bearFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1.5deg); }
+}
+
+@keyframes bearWave {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-3deg) translateY(-4px); }
+}
+
+@keyframes counterSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+
+.orbit-ring-slow { animation: orbitSpin 48s linear infinite; }
+.orbit-ring-medium { animation: orbitSpin 30s linear infinite; }
+.orbit-ring-reverse { animation: orbitSpinReverse 22s linear infinite; }
+.planet-float { animation: planetFloat 7s ease-in-out infinite; }
+.planet-float-delayed { animation: planetFloat 8.5s ease-in-out 1.5s infinite; }
+.planet-drift { animation: planetSlowDrift 16s ease-in-out infinite; }
+.planet-spin-ultra-slow { animation: orbitSpin 120s linear infinite; }
+.sun-pin-pulse { animation: sunPinGlow 4.5s ease-in-out infinite; }
+.bear-float { animation: bearFloat 5.5s ease-in-out infinite; }
+.bear-wave { animation: bearWave 4s ease-in-out infinite; }
+.counter-spin-slow { animation: counterSpin 48s linear infinite; }
+.counter-spin-medium { animation: counterSpin 30s linear infinite; }

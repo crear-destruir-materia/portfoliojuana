@@ -1,0 +1,13 @@
+# robots.txt — Portafolio Oficial de Juana Varela (Diseño Gráfico, Editorial, Branding e Ilustración)
+User-agent: *
+Allow: /
+
+# Permitir indexación completa de recursos visuales y obras del portafolio
+Allow: /projects/
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.svg$
+
+# Mapa del sitio XML
+Sitemap: https://juanavarela.design/sitemap.xml
+

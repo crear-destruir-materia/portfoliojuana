@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
+  <!-- Página Principal del Portafolio Oficial de Juana Varela -->
+  <url>
+    <loc>https://juanavarela.design/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+
+    <!-- Retrato Oficial Juana Varela -->
+    <image:image>
+      <image:loc>https://juanavarela.design/juana.jpg</image:loc>
+      <image:title>Juana Varela — Diseñadora Gráfica, Editorial, Branding e Ilustración en Bogotá</image:title>
+      <image:caption>Retrato de Juana Varela, diseñadora gráfica graduada con mención honorífica de la Universidad Piloto de Colombia.</image:caption>
+    </image:image>
+
+    <!-- Obra Destacada #1: Donde los Signos Florecen -->
+    <image:image>
+      <image:loc>https://juanavarela.design/projects/signos-cover.jpg</image:loc>
+      <image:title>Donde los Signos Florecen — Diseño Editorial, Dirección de Arte y Fotomontaje por Juana Varela</image:title>
+      <image:caption>Libro ilustrado y fotomontaje editorial que explora los doce signos zodiacales a través de los cuatro elementos naturales.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://juanavarela.design/projects/signos-spreads.jpg</image:loc>
+      <image:title>Páginas internas y diagramación de Donde los Signos Florecen — Juana Varela</image:title>
+    </image:image>
+
+    <!-- Obra Destacada #2: Mango Pets Boutique -->
+    <image:image>
+      <image:loc>https://juanavarela.design/projects/mango-branding.jpg</image:loc>
+      <image:title>Mango Pets Boutique — Branding, Identidad Visual, Packaging y Social Media por Juana Varela</image:title>
+      <image:caption>Sistema de identidad visual, empaques ilustrados, stickers, papelería y contenido digital para marca de mascotas.</image:caption>
+    </image:image>
+
+    <!-- Obra Destacada #3: La Química en la Ingeniería Civil -->
+    <image:image>
+      <image:loc>https://juanavarela.design/projects/quimica-cover.jpg</image:loc>
+      <image:title>La Química en la Ingeniería Civil — Ilustración Conceptual y Diseño Editorial Sello Editorial UniPiloto</image:title>
+      <image:caption>Diseño de cubierta e ilustración científica y editorial para cartilla académica de la Universidad Piloto de Colombia.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://juanavarela.design/projects/quimica-spreads.jpg</image:loc>
+      <image:title>Diagramación editorial de La Química en la Ingeniería Civil — Juana Varela</image:title>
+    </image:image>
+
+    <!-- Proyectos Complementarios del Portafolio -->
+    <image:image>
+      <image:loc>https://juanavarela.design/projects/rana-cover.jpg</image:loc>
+      <image:title>Rana Sabanera (Dendropsophus molitor) — Infografía Científica e Ilustración por Juana Varela</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://juanavarela.design/projects/guia-oim-cover.jpg</image:loc>
+      <image:title>Guía OSC en Migración y Refugio de OIM — Cartilla Interactiva y Diagramación Editorial por Juana Varela</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://juanavarela.design/projects/alua-kits.jpg</image:loc>
+      <image:title>Alua Kits — Identidad Visual, Packaging y Social Media para Kits Creativos por Juana Varela</image:title>
+    </image:image>
+  </url>
+</urlset>
+

@@ -1,0 +1,152 @@
+---
+import "../styles/global.css";
+import { SpaceCanvas } from "../components/SpaceCanvas";
+import { CosmicPortfolio } from "../components/CosmicPortfolio";
+import { portfolioData } from "../data/portfolio";
+
+const seoTitle =
+  "Juana Varela | Diseñadora Gráfica, Editorial, Branding e Ilustración en Bogotá — Portafolio 2026";
+const seoDescription =
+  "Portafolio oficial 2026 de Juana Varela, diseñadora gráfica en Bogotá, Colombia, especializada en diseño editorial, diagramación de libros y cartillas, branding, empaques, infografía científica, arte digital e ilustración.";
+const seoKeywords = [
+  "Juana Varela",
+  "diseñadora gráfica Bogotá",
+  "diseño editorial Colombia",
+  "ilustradora digital Bogotá",
+  "diagramación de libros y revistas",
+  "branding e identidad visual",
+  "diseño de empaques y packaging",
+  "infografía científica e informativa",
+  "arte digital y fotomontaje",
+  "portafolio diseño gráfico 2026",
+  "diseñadora editorial freelance",
+  "Sello Editorial UniPiloto",
+  "Sancho BBDO",
+  "Doinmedia",
+  "@juana.ilustra",
+].join(", ");
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://juanavarela.design/#person",
+      name: "Juana Varela",
+      alternateName: "@juana.ilustra",
+      jobTitle:
+        "Diseñadora Gráfica especializada en Diseño Editorial, Branding, Social Media e Ilustración",
+      description: seoDescription,
+      url: "https://juanavarela.design/",
+      image: "https://juanavarela.design/juana.jpg",
+      email: "mailto:juana.ilustra@gmail.com",
+      telephone: "+57-321-3447790",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Bogotá",
+        addressCountry: "CO",
+      },
+      alumniOf: [
+        {
+          "@type": "CollegeOrUniversity",
+          name: "Universidad Piloto de Colombia",
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          name: "Universidad Nacional de Colombia",
+        },
+      ],
+      award:
+        "Mención Honorífica por Mayor Promedio Acumulado de la Carrera de Diseño Gráfico — Universidad Piloto de Colombia",
+      knowsAbout: [
+        "Diseño Editorial",
+        "Diagramación de Libros y Cartillas",
+        "Branding e Identidad Visual",
+        "Ilustración Digital y Científica",
+        "Arte Digital y Fotomontaje",
+        "Diseño de Empaques",
+        "Infografía y Visualización de Datos",
+        "Adobe InDesign",
+        "Adobe Illustrator",
+        "Adobe Photoshop",
+        "Adobe After Effects",
+      ],
+      sameAs: [
+        "https://www.behance.net/juanavarela",
+        "https://www.behance.net/gallery/246515659/Portafolio-Diseno-Grafico-2026-Juana-Varela",
+        "https://www.instagram.com/juana.ilustra/",
+      ],
+    },
+    {
+      "@type": "ItemList",
+      name: "Obras Destacadas del Portafolio de Diseño Gráfico 2026 de Juana Varela",
+      itemListElement: portfolioData.projects.map((p, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "CreativeWork",
+          name: p.title,
+          headline: p.subtitle,
+          description: p.description,
+          genre: p.category,
+          dateCreated: p.year,
+          image: `https://juanavarela.design${p.coverImage}`,
+          author: { "@id": "https://juanavarela.design/#person" },
+          url: p.behanceUrl,
+        },
+      })),
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="es-CO" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Principal -->
+    <title>{seoTitle}</title>
+    <meta name="description" content={seoDescription} />
+    <meta name="keywords" content={seoKeywords} />
+    <meta name="author" content="Juana Varela (@juana.ilustra)" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://juanavarela.design/" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:site_name" content="Juana Varela · Portafolio Diseño Gráfico 2026" />
+    <meta property="og:title" content={seoTitle} />
+    <meta property="og:description" content={seoDescription} />
+    <meta property="og:url" content="https://juanavarela.design/" />
+    <meta property="og:image" content="https://juanavarela.design/projects/signos-cover.jpg" />
+    <meta property="og:image:alt" content="Portafolio de Diseño Gráfico, Editorial, Branding e Ilustración 2026 — Juana Varela" />
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={seoTitle} />
+    <meta name="twitter:description" content={seoDescription} />
+    <meta name="twitter:image" content="https://juanavarela.design/projects/signos-cover.jpg" />
+
+    <!-- Datos Estructurados Schema.org (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    <!-- Fuentes Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Great+Vibes&family=JetBrains+Mono:wght@400;500;600&family=Pinyon+Script&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="relative min-h-screen bg-[#040c1d] text-[#f8f5ec] antialiased selection:bg-[#ffc83d] selection:text-[#040c1d]">
+    <SpaceCanvas client:load />
+    <CosmicPortfolio client:load />
+  </body>
+</html>

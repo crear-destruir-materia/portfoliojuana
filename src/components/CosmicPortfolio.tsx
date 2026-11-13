@@ -171,39 +171,57 @@ export const CosmicPortfolio: React.FC = () => {
         {/* HERO SECTION: DISPOSICIÓN EN COLUMNA CON MAYOR ANCHO Y ESPACIO (SIN NAVBAR SUPERIOR NI KPIs) */}
         <section
           id="inicio"
-          className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-14 pb-24 md:pt-20 md:pb-32"
+          className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-12 pb-24 md:pt-20 md:pb-32"
         >
           {/* Contenedor en Columna (las dos secciones del Hero apiladas verticalmente y con mayor amplitud horizontal) */}
           <div className="mx-auto flex max-w-6xl flex-col items-center gap-12">
             {/* SECCIÓN 1 DE LA COLUMNA: PRESENTACIÓN AMPLIA "¡HOLA! SOY JUANA VARELA" */}
-            <div className="w-full space-y-7">
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#ffc83d]/45 bg-[#173d7a]/80 px-4 py-1.5 backdrop-blur-md shadow-[0_0_20px_rgba(255,200,61,0.18)]">
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#ffd95a] opacity-75"></span>
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-[#ffc83d]"></span>
-                  </span>
-                  <span className="font-mono text-xs uppercase tracking-widest text-[#ffd95a]">
-                    {profile.edition} · {profile.location}
-                  </span>
-                </div>
-
-                {/* Sectores de actividad alineados horizontalmente */}
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="font-mono text-xs uppercase tracking-wider text-[#a9c8f5] mr-1">
-                    Sectores de actividad:
-                  </span>
-                  {profile.sectors.map((sector) => (
-                    <Badge
-                      key={sector}
-                      variant="cosmic"
-                      className="px-3.5 py-1 text-xs sm:text-sm font-semibold tracking-wide"
-                    >
-                      <Sparkles className="mr-1.5 h-3.5 w-3.5 text-[#ffd95a]" />
-                      {sector}
-                    </Badge>
-                  ))}
-                </div>
+            <div className="w-full">
+              {/* Ositos ilustrados sentados sobre el borde superior de la tarjeta principal */}
+              <div
+                className="pointer-events-none relative z-20 -mb-2.5 sm:-mb-4 flex items-end justify-start gap-1.5 sm:gap-4 pl-3 sm:pl-10 pr-20 sm:pr-44 select-none"
+                aria-hidden="true"
+              >
+                <img
+                  src="/osito3.png"
+                  alt=""
+                  loading="eager"
+                  decoding="async"
+                  draggable={false}
+                  className="h-12 w-12 sm:h-20 sm:w-20 object-contain object-bottom drop-shadow-[0_6px_12px_rgba(4,12,29,0.75)]"
+                />
+                <img
+                  src="/osito4.png"
+                  alt=""
+                  loading="eager"
+                  decoding="async"
+                  draggable={false}
+                  className="h-13 w-13 sm:h-22 sm:w-22 object-contain object-bottom drop-shadow-[0_6px_12px_rgba(4,12,29,0.75)]"
+                />
+                <img
+                  src="/osito6.png"
+                  alt=""
+                  loading="eager"
+                  decoding="async"
+                  draggable={false}
+                  className="h-13 w-13 sm:h-22 sm:w-22 object-contain object-bottom drop-shadow-[0_6px_12px_rgba(4,12,29,0.75)]"
+                />
+                <img
+                  src="/osito.png"
+                  alt=""
+                  loading="eager"
+                  decoding="async"
+                  draggable={false}
+                  className="h-12 w-12 sm:h-19 sm:w-19 object-contain object-bottom drop-shadow-[0_6px_12px_rgba(4,12,29,0.75)]"
+                />
+                <img
+                  src="/osito2.png"
+                  alt=""
+                  loading="eager"
+                  decoding="async"
+                  draggable={false}
+                  className="h-12 w-12 sm:h-20 sm:w-20 object-contain object-bottom -translate-y-0.5 drop-shadow-[0_6px_12px_rgba(4,12,29,0.75)]"
+                />
               </div>
 
               {/* Tarjeta panorámica de saludo con la Estrella/Sol con rostro (/sol_pin.png) en la esquina superior derecha */}

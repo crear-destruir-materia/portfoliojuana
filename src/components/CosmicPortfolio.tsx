@@ -1692,7 +1692,7 @@ export const CosmicPortfolio: React.FC = () => {
         </section>
 
         {/* FOOTER */}
-        <footer className="relative z-10 border-t border-[#ffc83d]/20 bg-[#040c1d]/95 pt-10 pb-28 sm:pb-32 backdrop-blur-xl">
+        <footer className="relative z-10 border-t border-[#ffc83d]/20 bg-[#040c1d]/95 pt-10 pb-28 md:pb-10 backdrop-blur-xl">
           <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 sm:px-6 sm:flex-row">
             <div className="flex items-center gap-3">
               <Moon className="h-5 w-5 text-[#ffd95a]" />

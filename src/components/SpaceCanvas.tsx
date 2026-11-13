@@ -31,7 +31,8 @@ function drawSparkle(
   r: number,
   rot: number,
   color: string,
-  alpha: number
+  alpha: number,
+  withShadow: boolean
 ) {
   const points = 8;
   ctx.save();
@@ -44,8 +45,10 @@ function drawSparkle(
     ctx.lineTo(Math.cos(a) * radius, Math.sin(a) * radius);
   }
   ctx.closePath();
-  ctx.shadowColor = `rgba(255, 200, 61, ${alpha * 0.9})`;
-  ctx.shadowBlur = r * 2.2;
+  if (withShadow) {
+    ctx.shadowColor = `rgba(255, 200, 61, ${alpha * 0.9})`;
+    ctx.shadowBlur = r * 2.2;
+  }
   ctx.fillStyle = `rgba(${color}, ${alpha})`;
   ctx.fill();
   ctx.restore();
@@ -72,7 +75,11 @@ export const SpaceCanvas: React.FC = () => {
     ];
     const sparkleColors = ["255, 205, 64", "255, 220, 100", "255, 190, 50"];
 
-    const starCount = Math.min(240, Math.floor((width * height) / 6500));
+    const isMobile = width < 768;
+    const starCount = Math.min(
+      isMobile ? 90 : 240,
+      Math.floor((width * height) / 6500)
+    );
     const stars: Star[] = Array.from({ length: starCount }, () => {
       const sparkle = Math.random() < 0.09;
       return {
@@ -144,7 +151,7 @@ export const SpaceCanvas: React.FC = () => {
         if (star.sparkle) {
           star.rotation += 0.002;
           const r = star.size * (0.85 + 0.15 * Math.sin(star.twinklePhase));
-          drawSparkle(ctx, sx, sy, r, star.rotation, star.color, alpha);
+          drawSparkle(ctx, sx, sy, r, star.rotation, star.color, alpha, width >= 768);
         } else {
           ctx.beginPath();
           ctx.arc(sx, sy, star.size, 0, Math.PI * 2);

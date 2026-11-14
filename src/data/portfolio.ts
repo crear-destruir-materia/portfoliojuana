@@ -67,8 +67,8 @@ export const portfolioData = {
     role: "Arte Digital · Diseño Gráfico · Ilustración",
     sectors: ["Arte Digital", "Diseño Gráfico", "Ilustración"] as SectorCategory[],
     tagline:
-      "Soy diseñadora gráfica con enfoque en diseño editorial, branding, social media e ilustración. Tengo experiencia en el desarrollo de libros, revistas, informes, folletos, identidad visual y piezas digitales, tanto en entornos corporativos como freelance.",
-    bio: "Disfruto transformar información en piezas visuales claras y estéticamente cuidadas. Fuera del diseño, dibujar, pintar, hacer manualidades y practicar yoga nutren mi creatividad y mi forma de ver el mundo.",
+      "Diseñadora gráfica especializada en diseño editorial, branding, social media e ilustración de libros, revistas e identidad visual.",
+    bio: "Transformo información en piezas visuales claras. Dibujar, hacer manualidades y el yoga nutren mi creatividad.",
     edition: "Portafolio Diseño Gráfico 2026",
     callsign: "BOGOTÁ, COLOMBIA // @JUANA.ILUSTRA",
     location: "Bogotá, Colombia",
@@ -182,7 +182,7 @@ export const portfolioData = {
       masteryTime: "∞",
       specialty: "Ilustración Digital, Identidad Visual, Infografía & Vectores",
       description:
-        "Desarrollo de sistemas de identidad visual, logotipos, ilustración científica y botánica, stickers, empaques y conceptualización gráfica.",
+        "Sistemas de identidad visual, logotipos, ilustración científica y empaques.",
       pillars: [
         "Branding & Logotipos",
         "Ilustración Científica",
@@ -204,7 +204,7 @@ export const portfolioData = {
       masteryTime: "∞",
       specialty: "Arte Digital, Fotomontaje Simbólico, Texturas & Dirección de Arte",
       description:
-        "Experimentación compositiva, fotomontaje editorial, tratamiento de texturas naturales, ilustración pictórica y presentación de mockups.",
+        "Fotomontaje editorial, tratamiento de texturas, ilustración pictórica y mockups.",
       pillars: [
         "Fotomontaje Editorial",
         "Ilustración & Texturas",
@@ -226,7 +226,7 @@ export const portfolioData = {
       masteryTime: "∞",
       specialty: "Diagramación de Libros, Cartillas Educativas, Guías & Revistas",
       description:
-        "Arquitectura de contenidos, sistemas de retículas, maquetación de libros ilustrados, cartillas interactivas en PDF y artes finales / pre-prensa.",
+        "Retículas, maquetación de libros ilustrados, cartillas PDF y artes finales.",
       pillars: [
         "Libros & Cartillas",
         "Sistemas de Retícula",
@@ -248,7 +248,7 @@ export const portfolioData = {
       masteryTime: "∞",
       specialty: "Animación Digital, Reels Dinámicos & Narrativa Audiovisual",
       description:
-        "Respaldada por su Diplomado en Diseño de Animación Digital en la Universidad Nacional de Colombia, dando vida y movimiento a sistemas gráficos.",
+        "Animación digital y motion graphics (Diplomado U. Nacional) para redes e identidad.",
       pillars: [
         "Animación Digital",
         "Motion para Redes",
@@ -479,11 +479,11 @@ export const portfolioData = {
       missionCode: "EXP // 01 · ACTUAL",
       planetImage: "/saturno.png",
       description:
-        "Desempeño integral como diseñadora gráfica multilínea liderando comunicación visual multicanal, campañas publicitarias, contenido digital y producción audiovisual asistida por inteligencia artificial.",
+        "Liderazgo en comunicación visual multicanal, campañas publicitarias, contenido digital y producción audiovisual asistida por IA.",
       highlights: [
-        "Diseño publicitario, diseño POP para punto de venta y material de marca.",
-        "Planeación de contenido, copywriting estratégico y gestión visual para Social Media.",
-        "Producción audiovisual y creación de contenidos innovadores con herramientas de inteligencia artificial.",
+        "Diseño publicitario, POP y material de marca.",
+        "Planeación de contenido, copywriting y Social Media.",
+        "Producción audiovisual y creación de contenidos con IA.",
       ],
     },
     {
@@ -493,10 +493,9 @@ export const portfolioData = {
       missionCode: "EXP // 02 · AGENCIA",
       planetImage: "/sol.png",
       description:
-        "Desarrollo y diagramación de piezas editoriales de alto impacto visual en modalidad freelance para una de las agencias creativas líderes del país.",
+        "Desarrollo y diagramación de piezas editoriales de alto impacto visual en modalidad freelance.",
       highlights: [
-        "Maquetación editorial y dirección gráfica con rigor tipográfico.",
-        "Entrega de artes finales y piezas listas para producción e imprenta.",
+        "Maquetación editorial con rigor tipográfico y entrega de artes finales.",
       ],
     },
     {
@@ -506,10 +505,9 @@ export const portfolioData = {
       missionCode: "EXP // 03 · FREELANCE",
       planetImage: "/saturno.png",
       description:
-        "Diseño continuo de piezas gráficas, comunicación visual, contenido digital para redes sociales y material corporativo.",
+        "Diseño continuo de piezas gráficas, contenido digital para redes sociales y material corporativo.",
       highlights: [
-        "Evolución desde pasantía (Agosto 2024 - Febrero 2025) hasta rol actual como Diseñadora Gráfica Freelance.",
-        "Creación de sistemas visuales coherentes y adaptables a múltiples formatos.",
+        "Evolución desde pasantía (Ago 2024 - Feb 2025) hasta Diseñadora Gráfica Freelance.",
       ],
     },
     {
@@ -519,9 +517,8 @@ export const portfolioData = {
       missionCode: "EXP // 04 · EDITORIAL",
       planetImage: "/neptuno.png",
       description:
-        "Conceptualización, dirección de arte y diseño editorial para publicaciones, informes, cartillas e identidad visual.",
+        "Dirección de arte y diseño editorial para publicaciones, informes, cartillas e identidad visual.",
       highlights: [
-        "Transformación de información compleja en piezas visuales claras y estéticamente cuidadas.",
         "Integración de ilustración digital y diagramación avanzada en InDesign e Illustrator.",
       ],
     },
@@ -544,10 +541,9 @@ export const portfolioData = {
       missionCode: "EXP // 06 · SELLO EDITORIAL",
       planetImage: "/luna.png",
       description:
-        "Diseño, ilustración y diagramación de libros, cartillas académicas (como 'La química en la Ingeniería civil'), cubiertas y piezas divulgativas del Sello Editorial UniPiloto.",
+        "Diseño, ilustración y diagramación de libros, cartillas académicas y cubiertas del Sello Editorial UniPiloto.",
       highlights: [
-        "Diseño de portadas, páginas internas y piezas promocionales para la librería y audiolibros UniPiloto.",
-        "Publicación de dos proyectos en la revista Mirada Proyectual, ediciones 24 y 25.",
+        "Portadas e interiores publicados en la revista Mirada Proyectual (Ed. 24 y 25).",
       ],
     },
     {

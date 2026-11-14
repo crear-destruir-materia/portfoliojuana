@@ -79,6 +79,9 @@ export const CosmicPortfolio: React.FC = () => {
   const [activeSlideByProject, setActiveSlideByProject] = useState<
     Record<string, "cover" | "spread">
   >({});
+  const [expandedProjectIds, setExpandedProjectIds] = useState<
+    Record<string, boolean>
+  >({});
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [formSent, setFormSent] = useState(false);
   const [contactName, setContactName] = useState("");
@@ -119,6 +122,17 @@ export const CosmicPortfolio: React.FC = () => {
   ) => {
     e.stopPropagation();
     setActiveSlideByProject((prev) => ({ ...prev, [projectId]: mode }));
+  };
+
+  const toggleProjectDescription = (
+    e: React.MouseEvent,
+    projectId: string
+  ) => {
+    e.stopPropagation();
+    setExpandedProjectIds((prev) => ({
+      ...prev,
+      [projectId]: !prev[projectId],
+    }));
   };
 
   return (
@@ -356,9 +370,7 @@ export const CosmicPortfolio: React.FC = () => {
                       />
                     </div>
                     <p className="text-xs sm:text-sm text-[#d9e2f2]/85 max-w-2xl">
-                      Especialización en diseño editorial, diagramación de
-                      libros, branding, social media e ilustración científica y
-                      digital.
+                      Diseño editorial, branding, social media e ilustración.
                     </p>
                   </div>
                 </div>
@@ -379,21 +391,21 @@ export const CosmicPortfolio: React.FC = () => {
                   title: "Arte Digital",
                   code: "SECTOR // 01",
                   planet: "/neptuno.png",
-                  desc: "Dirección de arte, fotomontaje simbólico, experimentación con texturas naturales y universos cromáticos para publicaciones y medios digitales.",
+                  desc: "Dirección de arte, fotomontaje simbólico y texturas para medios impresos y digitales.",
                   icon: Sparkles,
                 },
                 {
                   title: "Diseño Gráfico",
                   code: "SECTOR // 02",
                   planet: "/saturno.png",
-                  desc: "Diseño editorial de libros, cartillas, revistas e informes, junto con identidad visual (branding), empaques, brochures educativos y social media.",
+                  desc: "Diseño editorial (libros, cartillas, revistas), branding, empaques y social media.",
                   icon: Layers,
                 },
                 {
                   title: "Ilustración",
                   code: "SECTOR // 03",
                   planet: "/luna.png",
-                  desc: "Ilustración digital, científica e informativa, creación de personajes originales, portadas ilustradas y visualización didáctica de datos.",
+                  desc: "Ilustración digital y científica, personajes originales y visualización de datos.",
                   icon: PenTool,
                 },
               ].map((sec) => {
@@ -485,12 +497,11 @@ export const CosmicPortfolio: React.FC = () => {
               </div>
             </div>
             <p className="max-w-xl text-sm sm:text-base text-[#c6d4f0]/90 leading-relaxed">
-              Presentación de casos de estudio con enfoque narrativo, dirección
-              de arte, sistemas cromáticos y desglose editorial de los{" "}
+              Selección de los{" "}
               <span className="text-[#ffd95a] font-semibold">
                 3 mejores trabajos de Juana Varela
               </span>{" "}
-              junto a su archivo profesional en Behance.
+              y su archivo profesional en Behance.
             </p>
           </div>
 
@@ -506,8 +517,7 @@ export const CosmicPortfolio: React.FC = () => {
                 </TabsList>
               </div>
               <span className="font-mono text-xs text-[#a9c8f5]">
-                Haz clic en las miniaturas o en cada obra para alternar vistas y
-                abrir el caso de estudio
+                Toca las miniaturas o amplía cada ficha
               </span>
             </div>
 
@@ -738,37 +748,64 @@ export const CosmicPortfolio: React.FC = () => {
                           </p>
                         </div>
 
-                        <p className="text-sm sm:text-base leading-relaxed text-[#d9e2f2]/90">
-                          {project.description}
-                        </p>
-
-                        {/* Síntesis Estratégica (Reto & Solución) */}
-                        <div className="rounded-2xl border border-[#ffc83d]/25 bg-[#081730]/80 p-4 space-y-2">
-                          <span className="font-mono text-[10px] uppercase tracking-widest text-[#ffd95a]">
-                            DIRECCIÓN DE ARTE & SOLUCIÓN VISUAL
-                          </span>
-                          <p className="text-xs sm:text-sm leading-relaxed text-[#c6d4f0]/90">
-                            {project.solution}
+                        <div className="space-y-2.5">
+                          <p
+                            className={`text-sm sm:text-base leading-relaxed text-[#d9e2f2]/90 ${
+                              expandedProjectIds[project.id]
+                                ? ""
+                                : "line-clamp-2"
+                            }`}
+                          >
+                            {project.description}
                           </p>
+
+                          <button
+                            type="button"
+                            onClick={(e) =>
+                              toggleProjectDescription(e, project.id)
+                            }
+                            aria-expanded={Boolean(
+                              expandedProjectIds[project.id]
+                            )}
+                            className="inline-flex items-center gap-1.5 rounded-full border border-[#ffc83d]/35 bg-[#0e244a]/80 px-3 py-1 font-mono text-[11px] font-medium text-[#ffd95a] transition-colors hover:border-[#ffe38a] hover:bg-[#173d7a]"
+                          >
+                            {expandedProjectIds[project.id]
+                              ? "Reducir descripción"
+                              : "Ampliar descripción"}
+                          </button>
                         </div>
 
-                        {/* Lista de Entregables Clave */}
-                        <div className="space-y-2">
-                          <span className="font-mono text-[10px] uppercase tracking-widest text-[#a9c8f5]">
-                            ENTREGABLES DEL PROYECTO:
-                          </span>
-                          <ul className="grid gap-1.5 sm:grid-cols-2">
-                            {project.deliverables.map((item) => (
-                              <li
-                                key={item}
-                                className="flex items-start gap-2 text-xs text-[#e8dfc8]"
-                              >
-                                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[#ffc83d]" />
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                        {expandedProjectIds[project.id] && (
+                          <>
+                            {/* Síntesis Estratégica (Reto & Solución) */}
+                            <div className="rounded-2xl border border-[#ffc83d]/25 bg-[#081730]/80 p-4 space-y-2">
+                              <span className="font-mono text-[10px] uppercase tracking-widest text-[#ffd95a]">
+                                DIRECCIÓN DE ARTE & SOLUCIÓN VISUAL
+                              </span>
+                              <p className="text-xs sm:text-sm leading-relaxed text-[#c6d4f0]/90">
+                                {project.solution}
+                              </p>
+                            </div>
+
+                            {/* Lista de Entregables Clave */}
+                            <div className="space-y-2">
+                              <span className="font-mono text-[10px] uppercase tracking-widest text-[#a9c8f5]">
+                                ENTREGABLES DEL PROYECTO:
+                              </span>
+                              <ul className="grid gap-1.5 sm:grid-cols-2">
+                                {project.deliverables.map((item) => (
+                                  <li
+                                    key={item}
+                                    className="flex items-start gap-2 text-xs text-[#e8dfc8]"
+                                  >
+                                    <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[#ffc83d]" />
+                                    <span>{item}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </>
+                        )}
 
                         {/* Pie de Ficha: Herramientas + Botones de Acción */}
                         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#ffc83d]/20 pt-4">
@@ -887,10 +924,33 @@ export const CosmicPortfolio: React.FC = () => {
                             </CardDescription>
                           </CardHeader>
 
-                          <CardContent className="pb-4">
-                            <p className="text-sm text-[#c6d4f0]/85 leading-relaxed">
+                          <CardContent className="pb-4 space-y-2.5">
+                            <p
+                              className={`text-sm text-[#c6d4f0]/85 leading-relaxed ${
+                                expandedProjectIds[`grid-${project.id}`]
+                                  ? ""
+                                  : "line-clamp-2"
+                              }`}
+                            >
                               {project.description}
                             </p>
+                            <button
+                              type="button"
+                              onClick={(e) =>
+                                toggleProjectDescription(
+                                  e,
+                                  `grid-${project.id}`
+                                )
+                              }
+                              aria-expanded={Boolean(
+                                expandedProjectIds[`grid-${project.id}`]
+                              )}
+                              className="inline-flex items-center gap-1 rounded-full border border-[#ffc83d]/30 bg-[#0e244a]/80 px-2.5 py-0.5 font-mono text-[10px] text-[#ffd95a] transition-colors hover:border-[#ffe38a] hover:bg-[#173d7a]"
+                            >
+                              {expandedProjectIds[`grid-${project.id}`]
+                                ? "Reducir descripción"
+                                : "Ampliar descripción"}
+                            </button>
                           </CardContent>
 
                           <CardFooter className="flex flex-wrap items-center justify-between gap-2 border-t border-[#ffc83d]/15 pt-4">
@@ -949,10 +1009,9 @@ export const CosmicPortfolio: React.FC = () => {
                 />
               </div>
               <p className="mx-auto mt-3 max-w-2xl text-sm sm:text-base text-[#c6d4f0]/85">
-                Las cuatro herramientas fundamentales de Juana Varela, forjadas
-                como sellos astrales en azul cobalto y oro con{" "}
+                Cuatro pilares creativos con{" "}
                 <span className="font-semibold text-[#ffd95a]">
-                  tiempo de dominio infinito (∞)
+                  dominio infinito (∞)
                 </span>
                 .
               </p>

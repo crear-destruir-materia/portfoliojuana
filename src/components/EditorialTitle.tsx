@@ -53,23 +53,36 @@ const INITIAL_RIGHT_KERNING: Record<string, string> = {
 function splitFirstLetter(raw: string): {
   prefix: string;
   initial: string;
-  rest: string;
+  firstWordRest: string;
+  tail: string;
   kerningEm: string;
 } {
   const match = raw.match(/^([¡¿"“']*)([A-Za-zÁÉÍÓÚÑáéíóúñ])(.*)$/);
   if (!match) {
-    return { prefix: "", initial: "", rest: raw, kerningEm: "0.18em" };
+    return {
+      prefix: "",
+      initial: "",
+      firstWordRest: raw,
+      tail: "",
+      kerningEm: "0.18em",
+    };
   }
   const initial = (match[2] ?? "").toUpperCase();
   const baseChar = initial
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "");
   const kerningEm = INITIAL_RIGHT_KERNING[baseChar] ?? "0.20em";
+  const restUpper = (match[3] ?? "").toUpperCase();
+  const spaceIdx = restUpper.indexOf(" ");
+  const firstWordRest =
+    spaceIdx === -1 ? restUpper : restUpper.slice(0, spaceIdx);
+  const tail = spaceIdx === -1 ? "" : restUpper.slice(spaceIdx);
 
   return {
     prefix: match[1] ?? "",
     initial,
-    rest: (match[3] ?? "").toUpperCase(),
+    firstWordRest,
+    tail,
     kerningEm,
   };
 }
@@ -93,7 +106,13 @@ export const EditorialTitle: React.FC<EditorialTitleProps> = ({
   const line2 = secondLine
     ? secondLineInitial
       ? splitFirstLetter(secondLine)
-      : { prefix: "", initial: "", rest: secondLine.toUpperCase(), kerningEm: "0em" }
+      : {
+          prefix: "",
+          initial: "",
+          firstWordRest: secondLine.toUpperCase(),
+          tail: "",
+          kerningEm: "0em",
+        }
     : null;
 
   return (
@@ -118,46 +137,52 @@ export const EditorialTitle: React.FC<EditorialTitleProps> = ({
       )}
 
       <span className="relative z-10">
-        {line1.prefix && (
-          <span className="mr-[0.16em] font-editorial inline-block">
-            {line1.prefix}
-          </span>
-        )}
-        {line1.initial && (
-          <span
-            style={{ marginRight: line1.kerningEm, paddingLeft: "0.04em" }}
-            className={cn(
-              "font-script-initial text-[1.46em] text-[#ffe38a] drop-shadow-[0_2px_10px_rgba(255,200,61,0.3)]",
-              initialClassName
-            )}
-          >
-            {line1.initial}
-          </span>
-        )}
-        <span>{line1.rest}</span>
+        <span className="inline-block whitespace-nowrap">
+          {line1.prefix && (
+            <span className="mr-[0.16em] font-editorial inline-block">
+              {line1.prefix}
+            </span>
+          )}
+          {line1.initial && (
+            <span
+              style={{ marginRight: line1.kerningEm, paddingLeft: "0.04em" }}
+              className={cn(
+                "font-script-initial text-[1.46em] text-[#ffe38a] drop-shadow-[0_2px_10px_rgba(255,200,61,0.3)]",
+                initialClassName
+              )}
+            >
+              {line1.initial}
+            </span>
+          )}
+          <span>{line1.firstWordRest}</span>
+        </span>
+        {line1.tail && <span>{line1.tail}</span>}
       </span>
 
       {line2 && (
         <>
           <br />
           <span className="relative z-10">
-            {line2.prefix && (
-              <span className="mr-[0.16em] font-editorial inline-block">
-                {line2.prefix}
-              </span>
-            )}
-            {line2.initial && (
-              <span
-                style={{ marginRight: line2.kerningEm, paddingLeft: "0.04em" }}
-                className={cn(
-                  "font-script-initial text-[1.46em] text-[#ffe38a] drop-shadow-[0_2px_10px_rgba(255,200,61,0.3)]",
-                  initialClassName
-                )}
-              >
-                {line2.initial}
-              </span>
-            )}
-            <span>{line2.rest}</span>
+            <span className="inline-block whitespace-nowrap">
+              {line2.prefix && (
+                <span className="mr-[0.16em] font-editorial inline-block">
+                  {line2.prefix}
+                </span>
+              )}
+              {line2.initial && (
+                <span
+                  style={{ marginRight: line2.kerningEm, paddingLeft: "0.04em" }}
+                  className={cn(
+                    "font-script-initial text-[1.46em] text-[#ffe38a] drop-shadow-[0_2px_10px_rgba(255,200,61,0.3)]",
+                    initialClassName
+                  )}
+                >
+                  {line2.initial}
+                </span>
+              )}
+              <span>{line2.firstWordRest}</span>
+            </span>
+            {line2.tail && <span>{line2.tail}</span>}
           </span>
         </>
       )}

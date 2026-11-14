@@ -256,24 +256,28 @@ export const CosmicPortfolio: React.FC = () => {
                 </div>
 
                 <div className="mt-6 grid gap-6 lg:grid-cols-12 items-end border-t border-[#ffc83d]/20 pt-6">
-                  <div className="space-y-3 lg:col-span-8 text-base sm:text-lg leading-relaxed text-[#d9e2f2]/95">
+                  <div className="min-w-0 space-y-3 lg:col-span-8 text-base sm:text-lg leading-relaxed text-[#d9e2f2]/95">
                     <p>{profile.tagline}</p>
                     <p className="text-sm sm:text-base text-[#c6d4f0]/85">
                       {profile.bio}
                     </p>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row lg:flex-col gap-3 lg:col-span-4 lg:items-end justify-end">
-                    <Button size="lg" className="w-full sm:w-auto" asChild>
+                  <div className="min-w-0 flex flex-col sm:flex-row lg:flex-col gap-3 lg:col-span-4 lg:items-end justify-end">
+                    <Button
+                      size="lg"
+                      className="w-full sm:w-auto px-4 sm:px-7 text-sm sm:text-base"
+                      asChild
+                    >
                       <a href="#proyectos">
-                        <Rocket className="h-5 w-5" />
+                        <Rocket className="h-4 w-4 sm:h-5 sm:w-5" />
                         Explorar Sus 3 Mejores Obras
                       </a>
                     </Button>
                     <Button
                       size="lg"
                       variant="outline"
-                      className="w-full sm:w-auto"
+                      className="w-full sm:w-auto px-4 sm:px-7 text-sm sm:text-base"
                       asChild
                     >
                       <a
@@ -281,7 +285,7 @@ export const CosmicPortfolio: React.FC = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <Globe className="h-5 w-5 text-[#ffd95a]" />
+                        <Globe className="h-4 w-4 sm:h-5 sm:w-5 text-[#ffd95a]" />
                         {profile.behanceHandle}
                       </a>
                     </Button>
@@ -1391,14 +1395,14 @@ export const CosmicPortfolio: React.FC = () => {
 
             <div className="space-y-6 lg:col-span-5">
               <Card className="border-[#ffc83d]/30 bg-gradient-to-b from-[#13315f]/90 to-[#0b1e3d]/95 p-6 space-y-4">
-                <div className="flex items-center justify-between border-b border-[#ffc83d]/20 pb-3">
+                <div className="flex items-center justify-between gap-2 border-b border-[#ffc83d]/20 pb-3">
                   <EditorialTitle
                     as="h3"
                     text="Reconocimientos"
                     starAccent={true}
-                    className="text-2xl text-[#f8f5ec]"
+                    className="text-xl sm:text-2xl text-[#f8f5ec]"
                   />
-                  <Award className="h-5 w-5 text-[#ffd95a]" />
+                  <Award className="h-5 w-5 shrink-0 text-[#ffd95a]" />
                 </div>
                 <div className="space-y-3">
                   {profile.recognitions.map((rec) => (
